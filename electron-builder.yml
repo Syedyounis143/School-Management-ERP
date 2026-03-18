@@ -1,0 +1,32 @@
+appId: com.schoolmanagement.app
+productName: School Management System
+directories:
+  buildResources: assets
+  output: dist-exe
+
+files:
+  - from: dist
+    to: dist
+  - from: dist/electron
+    to: electron
+  - from: assets
+    to: assets
+  - from: node_modules
+    to: node_modules
+    filter:
+      - '!**/node_modules'
+      - '!**/*.map'
+      - '!**/test'
+      - '!**/tests'
+      - '!**/.bin'
+
+win:
+  target:
+    - portable
+  icon: assets/icon.ico
+
+portable:
+  artifactName: ${productName}-Setup-${version}.${ext}
+
+extraMetadata:
+  name: school-management-system
